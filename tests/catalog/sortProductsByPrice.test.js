@@ -43,7 +43,7 @@ describe('sortProductsByPrice', () => {
 
   test("'desc' не меняет исходный массив [1, 3, 4]", () => {
     const targetProducts = products.filter((product) => [1, 3, 4].includes(product.id));
-    sortProductsByPrice(targetProducts);
+    sortProductsByPrice(targetProducts, "desc");
     expect(targetProducts.map((product) => product.id)).toEqual([1, 3, 4]);
   });
 
