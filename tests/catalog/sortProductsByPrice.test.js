@@ -48,8 +48,8 @@ describe('sortProductsByPrice', () => {
   });
 
   test('направление по умолчанию не меняет исходный массив всех товаров', () => {
-    const productsCopy = [...products];
+    const initialProductsOrderById = products.map((product) => product.id);
     sortProductsByPrice(products);
-    expect(products).toEqual(productsCopy);
+    expect(products.map((product) => product.id)).toEqual(initialProductsOrderById);
   });
 });
