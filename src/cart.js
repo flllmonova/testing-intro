@@ -16,14 +16,18 @@ function addToCart(cart, product, quantity) {
   }
 
   const productInCart = cart.find((productInCart) => productInCart.id === product.id);
-  if (productInCart) productInCart.quantity += quantity;
+  if (productInCart) {
+    productInCart.quantity += quantity;
+  } else {
+    cart.push({...product, quantity: quantity });
+  }
 
   return cart;
 }
 
 function changeQuantity(cart, productId, quantity) {
   if (quantity === 0) {
-    throw new RangeError("Количество товара не должно быть равно 0.");
+    throw new RangeError("Количество товара не должно быть нулевым.");
   }
 
   const productInCart = cart.find((product) => product.id === productId);
